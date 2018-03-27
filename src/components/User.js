@@ -35,7 +35,7 @@ export class User extends Component {
         <input type = "button" value = "Sign Out" onClick = { (e) => this.signOut()} />
         :
       <input type = "button" value = "Sign In" onClick = { (e) => this.signIn()} />
-    }
+      }
     </div>
 
     )

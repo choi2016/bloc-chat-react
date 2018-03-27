@@ -37,10 +37,10 @@ class App extends Component {
     return (
       <div className="App">
         <h1>{this.state.activeRoom.title || "Select A Room"}</h1>
-        <User firebase={firebase} setUser={this.setUser} user = { this.state.user} />
-        <RoomList firebase={firebase} activeRoom={this.activeRoom} user = { this.state.user} />
+        <User firebase={firebase} setUser={this.setUser} user = { this.state.user}/>
+        <RoomList firebase={firebase} activeRoom={this.activeRoom} />
         { showMessages ?
-        (<MessageList firebase={firebase} activeRoom={this.state.activeRoom.key} user = { this.state.user} />)
+        (<MessageList firebase={firebase} activeRoom={this.state.activeRoom.key} />)
         : (null)
         }
       </div>
