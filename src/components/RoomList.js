@@ -48,8 +48,9 @@ export class RoomList extends Component {
 
     return(
       <div>
-        <h1>{roomForm}</h1>
         <ul>{roomList}</ul>  
+        <h1>{roomForm}</h1>
+        
       </div>  
     );
   }
