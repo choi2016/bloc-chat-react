@@ -30,6 +30,7 @@ export class User extends Component {
   render() {
     return(
     <div>
+      <h3>Welcome {this.props.welcome}!</h3>
       <p>{ this.props.user ? this.props.user.displayName : 'guest'  } </p>
       {this.props.user ?
         <input type = "button" value = "Sign Out" onClick = { (e) => this.signOut()} />
