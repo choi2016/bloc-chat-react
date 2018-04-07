@@ -36,14 +36,18 @@ class App extends Component {
     const currentUser = this.state.user === null ? "Guest" : this.state.user.displayName;
 
     return (
+
       <div className="App">
         <User firebase={firebase} setUser={this.setUser} user = { this.state.user} welcome={currentUser}/>
         <h1>{this.state.activeRoom.title || "Select A Room"}</h1>
         <RoomList firebase={firebase} activeRoom={this.activeRoom} />
-        { showMessages ?
-        (<MessageList firebase={firebase} activeRoom={this.state.activeRoom.key} user={this.state.user} />)
-        : (null)
-        }
+
+          {showMessages ?
+
+          (<MessageList firebase={firebase} activeRoom={this.state.activeRoom.key} user={currentUser}/>)
+          : (null)
+          }
+
       </div>
       
     );

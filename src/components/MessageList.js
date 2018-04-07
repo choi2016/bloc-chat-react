@@ -38,30 +38,25 @@ export class MessageList extends Component {
     });
   }
 
-  render() {
-    const activeRoom = this.props.activeRoom;
-
-    const messageBar = (
-      <form onSubmit={this.createMessage}>
-        <input type="text" value={this.state.content} placeholder="Enter Message" onChange={this.handleChange}/>
-        <input type="submit" value="Send" />
-      </form>
-    );
-
-    const messageList = (
-      this.state.messages.map((message) => {
-        if (message.roomId === activeRoom) {
-           return <li key={message.key}>{message.username}: {message.content}</li>
-        }
-        return null;
-      })
-    );
-
-    return(
-      <div>
-        <div>{messageBar}</div>
-        <ul>{messageList}</ul>
-      </div>
-    );
-  }
+    render() {
+        const activeRoom = this.props.activeRoom;
+        const messageList = this.state.messages
+        .filter(message => message.roomId === activeRoom)
+        .map(message => {
+            return <div className="current-message" key={message.key}>{message.username}: {message.content}</div>
+        })
+       
+        return (
+                <div className="chatroom-messages">
+                    <div>{messageList}
+                    </div>
+           
+                    <form onSubmit={(e) => this.handleSubmit(e)}>
+                        <input type="text" name="newmessage" placeholder="New Message" value={this.state.content} 
+                        onChange={(e) => this.handleChange(e)} />
+                        <button type="submit" onClick={(e) => this.createMessage(e)}>Send</button>
+                        </form>
+                    </div>   
+        );
+    }
 }
